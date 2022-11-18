@@ -26,7 +26,7 @@
     <div class="my_question animate__animated animate__zoomIn">
       <div class="question">
         <ion-label class="clabel">Question?</ion-label>
-        <div class="qsn">Who has made 100 Centuries in cricket?</div>
+        <div class="qsn">{{question}}</div>
       </div>
 
       <div class="option_block">
@@ -36,25 +36,25 @@
           <ion-radio-group [allowEmptySelection]="true" value="turtles">
             <ion-item style="--per : 50%; ">
               <div class="percentz">50%</div>
-              <ion-label>Sachin Tendulkar</ion-label>
+              <ion-label>{{option1}}</ion-label>
               <ion-radio slot="end" value="dogs"></ion-radio>
             </ion-item>
 
             <ion-item style="--per : 20%; ">
               <div class="percentz">20%</div>
-              <ion-label>Virat Kohli</ion-label>
+              <ion-label>{{option2}}</ion-label>
               <ion-radio slot="end" value="cats"></ion-radio>
             </ion-item>
 
             <ion-item style="--per : 20%; ">
               <div class="percentz">20%</div>
-              <ion-label>Kumara Sangakara</ion-label>
+              <ion-label>{{option3}}</ion-label>
               <ion-radio slot="end" value="turtles"></ion-radio>
             </ion-item>
 
             <ion-item style="--per : 10%; ">
               <div class="percentz">10%</div>
-              <ion-label>Don Bradman</ion-label>
+              <ion-label >{{option4}}</ion-label>
               <ion-radio slot="end" value="fish"></ion-radio>
             </ion-item>
           </ion-radio-group>
@@ -68,7 +68,7 @@
 
 
     <div class="btn_holder animate__animated animate__slideInUp">
-      <ion-button class="myBtnz">SUBMIT</ion-button>
+      <ion-button class="myBtnz" (click)="submit()">SUBMIT</ion-button>
     </div>
 
 

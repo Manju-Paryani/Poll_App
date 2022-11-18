@@ -33,4 +33,8 @@ export class MyDashboardPage implements OnInit {
     this.navCtrl.navigateForward('/create-survey')
   }
 
+  JoinASurvey(){
+    this.navCtrl.navigateForward('/answer-survey')
+  }
+
 }
