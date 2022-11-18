@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'poll-list',
     loadChildren: () => import('./poll-list/poll-list.module').then( m => m.PollListPageModule)
   },
+  {
+    path: 'pending-polls',
+    loadChildren: () => import('./pending-polls/pending-polls.module').then( m => m.PendingPollsPageModule)
+  },
 
 
 ];
