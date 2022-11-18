@@ -68,16 +68,39 @@ ion-content {
       }
     }
 
-    ion-list.ansBar{
-      ion-radio-group{
-        ion-item{
+    ion-list.ansBar {
+      ion-radio-group {
+        ion-item {
           position: relative;
+          z-index: 100;
+          overflow: visible;
 
-          &::before{
-            content: '';
+          &::before {
+            content: "";
             width: var(--per);
-            height: 40px;
-            background: #f1f1f1;
+            height: 6px;
+            background: #71c3fb;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            transition: 1s all ease;
+          }
+
+          .percentz {
+            position: absolute;
+            left: -14px;
+            top: 6px;
+            font-size: 12px;
+            transform: rotate(-90deg);
+            transform-origin: bottom center;
+            font-weight: 500;
+            color: #5095c5;
+          }
+
+          ion-label {
+            position: relative;
+            z-index: 999;
           }
         }
       }
@@ -86,6 +109,7 @@ ion-content {
 
     .btn_holder {
       margin-top: 24px;
+
       .myBtnz {
         font: normal normal 14px 'Roboto';
         color: #fff;
@@ -98,10 +122,11 @@ ion-content {
         height: 51px;
 
       }
-        ion-icon {
-          margin-right: 6px;
-        }
 
+      ion-icon {
+        margin-right: 6px;
       }
+
     }
   }
+}
