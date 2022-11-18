@@ -14,6 +14,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HomePage {
 
   signin_url = 'https://api.cherryko.tk/users/sign_in' 
+  sign_up = 'https://api.cherryko.tk/users'
+  create_poll = 'https://api.cherryko.tk/api/v1/polls' 
   header =  {
     'Content-Type' : "application/json"
   };
@@ -31,6 +33,36 @@ export class HomePage {
     //   console.log('signin err', response)
     // });
 
+  }
+
+  signup(){
+    let cred= { "user": { "email": "manju@test.com", "password": "mypassword", "name": "Alok"} }
+    this.httpClient.post(this.sign_up, cred)
+    .subscribe((response: any) => {
+      console.log('signup success',response)
+    })
+    // .catch((response: any) => {  
+    //   console.log('signin err', response)
+    // });
+
+    
+
+  }
+
+  createPoll(){
+    let cred= {
+      "poll": {
+          "topic":"what is your favourite color",
+          "vote_options_attributes": [{"title":"blue"}, {"title":"red"}, {"title": "white"}, {"title":"yellow"}]
+      }
+  }
+    this.httpClient.post(this.create_poll, cred)
+    .subscribe((response: any) => {
+      console.log('create poll success',response)
+    })
+    // .catch((response: any) => {  
+    //   console.log('signin err', response)
+    // });
   }
 
 }
