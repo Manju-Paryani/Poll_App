@@ -23,8 +23,8 @@ export class MyDashboardPage implements OnInit {
     this.commonService.pollList().subscribe(res => {
       console.log('poll', res)
       try {
-        this.commonService.verifiedPolls = this.verifiedPolls = res.data.unverified
-        this.commonService.unVerifiedPolls = this.unVerifiedPolls = res.data.verified
+        this.commonService.verifiedPolls = this.verifiedPolls = res.data.verified
+        this.commonService.unVerifiedPolls = this.unVerifiedPolls = res.data.unverified
       } catch (err) {
         console.log(err)
       }
