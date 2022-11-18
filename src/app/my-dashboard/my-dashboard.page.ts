@@ -32,6 +32,8 @@ pendingSurvey() {
   }
 
   ngOnInit() {
+  }
+  ionViewWillEnter() {
     this.dashboard()
   }
 

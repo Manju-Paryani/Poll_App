@@ -23,9 +23,9 @@
     </div>
     <!-- animate__delay-1s -->
     <div class="card  animate__animated animate__flipInX">
-      <div class="icon-exp" *ngIf="!createdCount || !approvedCount || !answeredPollCount "><img
+      <div class="icon-exp" *ngIf="!createdCount && !approvedCount && !answeredPollCount "><img
           src="assets/images/oops.jpg" alt=""></div>
-      <div class="txt1" *ngIf="!createdCount || !approvedCount || !answeredPollCount ">You haven't participated any
+      <div class="txt1" *ngIf="!createdCount && !approvedCount && !answeredPollCount ">You haven't participated any
         surveys yet!</div>
       <app-charts *ngIf="createdCount || approvedCount || answeredPollCount "></app-charts>
     </div>
@@ -42,11 +42,11 @@
     <div class="survey_details">
       <div class="card animate__animated animate__slideInLeft">
         <div class="count">{{approvedCount}}</div>
-        <div class="title">approved Poll</div>
+        <div class="title" style="color: #34912d;">Approved Poll</div>
       </div>
       <div class="card animate__animated animate__slideInRight">
         <div class="count">{{totalPollCount}}</div>
-        <div class="title" style="color: #34912d;">Live Poll</div>
+        <div class="title" >Live Poll</div>
       </div>
     </div>
     <div class="dual_button animate__animated animate__slideInUp">

@@ -29,7 +29,7 @@ export class ChartsComponent implements OnInit {
     this.doughnutChart = new Chart(this.dCanvas.nativeElement, {
       type: 'doughnut',
       data: {
-        labels: ['poll Created', 'approval pending', 'answered poll'],
+        labels: ['Created poll ', 'Approved poll', 'Answered poll'],
         datasets: [{
           label: 'Poll',
           data: [this.commonService.createdCount, this.commonService.approvedCount, this.commonService.answeredPollCount],

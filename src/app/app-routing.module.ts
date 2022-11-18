@@ -3,10 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
     redirectTo: 'welcome-screen',
     pathMatch: 'full'
@@ -30,7 +26,8 @@ const routes: Routes = [
   {
     path: 'answer-survey',
     loadChildren: () => import('./answer-survey/answer-survey.module').then( m => m.AnswerSurveyPageModule)
-  },  {
+  },
+  {
     path: 'poll-list',
     loadChildren: () => import('./poll-list/poll-list.module').then( m => m.PollListPageModule)
   },
