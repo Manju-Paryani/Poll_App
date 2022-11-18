@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonServiceService } from '../common-service.service';
 
 @Component({
   selector: 'app-my-dashboard',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyDashboardPage implements OnInit {
 
-  constructor() { }
+  constructor(public commonService: CommonServiceService) { 
+
+  }
 
   ngOnInit() {
+    this.dashboard()
+  }
+
+  dashboard(){
+    this.commonService.pollList().subscribe(data =>{
+      console.log('poll', data)
+    })
   }
 
 }

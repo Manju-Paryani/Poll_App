@@ -1,6 +1,7 @@
 
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { CommonServiceService } from '../common-service.service';
 
 @Component({
@@ -23,7 +24,8 @@ userType = 'user'
   set_password: any;
   confirm_password: any;
 
-  constructor(public commonService: CommonServiceService) { }
+  constructor(public commonService: CommonServiceService,
+    public navCtrl : NavController) { }
 
   ngOnInit() {
   }
@@ -32,37 +34,47 @@ userType = 'user'
     this.options = { 'headers': new HttpHeaders(this.auth) };
 }
   signupFunc(){
-      let cred= { "user": { "email": "alok@test.com", 
-      "password": "mypassword" } }
+      let cred= { "user": { "email": this.email, 
+      "password": this.set_password,
+    "name" : this.fullname } }
     this.commonService.signUp(cred).subscribe((response: any) => {
-      console.log('signin success',response)
-      return response
+      if(response.status.code == 200){
+        this.commonService.userData = response.data
+        this.navCtrl.navigateForward('/my-dashboard')
+      }
+      console.log('signup success',response)
     })
   }
   signinFunc(){
     let cred= { "user": { 
-      "email": "alok@test.com", 
-    "password": "mypassword" 
-  } }
+      "email": this.username, 
+    "password": this.password
+  }}
     this.commonService.signin(cred).subscribe((response: any) => {
       console.log('signin success',response)
-      return response
+      if(response.status.code == 200){
+        this.commonService.userData = response.data
+        this.navCtrl.navigateForward('/my-dashboard')
+      }
     })
   }
 
   userTypeCheck(userType:any){
     if(userType == 'user'){
       this.userType = 'user'
-
     }else if(userType == 'admin'){
       this.userType = 'admin'
     }
-
   }
 
   checkevent(btnName:any){
     if(this.type == 'signin'){
-      return true
+      if(this.username && this.password)
+      {
+        return true
+      }else{
+        return false
+      }
   }else if(btnName == 'signup'){
 return false
   }else{
