@@ -9,7 +9,7 @@
 
     <ion-item style="font-size: 14px;">
       <ion-label>Choose Category</ion-label>
-      <ion-select interface="action-sheet" placeholder="Select Category" cancelText="Cancel Choice" [(ngModel)]="category" [ngModelOptions]="{standalone: true}">
+      <ion-select interface="action-sheet" placeholder="Select Category" cancelText="Cancel Choice">
         <ion-select-option value="apples">Sports</ion-select-option>
         <ion-select-option value="oranges">Politics</ion-select-option>
         <ion-select-option value="bananas">General Knowledge</ion-select-option>
@@ -60,7 +60,7 @@
 
 
     <div class="dual_button">
-      <ion-button class="outBtn" (click)="survey()">Post</ion-button>
+      <ion-button class="myBtnz" (click)="publishPoll()">Post</ion-button>
 
     </div>
 

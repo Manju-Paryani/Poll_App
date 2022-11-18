@@ -1,3 +1,4 @@
+import { CommonServiceService } from './../common-service.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
 
@@ -7,27 +8,29 @@ import { AlertController, NavController } from '@ionic/angular';
   styleUrls: ['./create-survey.page.scss'],
 })
 export class CreateSurveyPage implements OnInit {
-  category: string = '';
   question: string = '';
   option1:any; 
   option2: any;
   option3: any;
   option4: any;
+  poll_data:any
+
   constructor(public navCtrl: NavController,
-    private alertController: AlertController) { }
+    private alertController: AlertController,
+    public commonService: CommonServiceService) { }
 
   ngOnInit() {
   }
-  poll_data:any
+
   options(){
     this.poll_data = {
     topic : '',
-    options :{
-      option_1: this.option1,
-      option_2: this.option2,
-      option_3: this.option3,
-      option_4: this.option4,
-    }
+    options :[
+      {title: this.option1},
+      {title: this.option2},
+      {title: this.option3},
+      {title: this.option4},
+    ]
   }
 } 
 
@@ -42,6 +45,15 @@ export class CreateSurveyPage implements OnInit {
   //   this.navCtrl.navigateForward('/create-survey') 
   // }
 
+  publishPoll(){
+    this.commonService.createPoll(data).subscribe((response: any) => {
+      console.log(response)
+      if(response.status.code == 200){
+        this.survey()
+        console.log("post submitted")
+      }
+  });
+}
   async survey(){
 
     const alert = await this.alertController.create({
@@ -60,7 +72,7 @@ export class CreateSurveyPage implements OnInit {
           text : `New Poll`,
           cssClass: 'primary',
           handler: () => {
-            this.option1 = this.option2 = this.option3 = this.option4 = this.question = this.category = ''
+            this.option1 = this.option2 = this.option3 = this.option4 = this.question = ''
             // this.navCtrl.navigateForward('/create-survey')
 
             alert.dismiss();
@@ -75,3 +87,7 @@ export class CreateSurveyPage implements OnInit {
     })
  }
 }
+function data(data: any) {
+  throw new Error('Function not implemented.');
+}
+
