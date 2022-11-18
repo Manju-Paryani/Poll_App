@@ -13,13 +13,13 @@ export class CommonServiceService {
   header =  {
     'Content-Type' : "application/json"
   };options:any
-  auth:any = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjY4Nzc0NzIwLCJleHAiOjE2NzAwNzA3MjAsImp0aSI6IjQ1MjBjZjA5LThmNmEtNDUzMC1hZDNjLTg2MGM5MzQ0OWViNSJ9.ChxsSeer7qpHlz3zLnzdpAddZB-KN3T4fOMSVoWSG60'}
+  auth:any
   userData: any
   
   constructor(public httpClient: HttpClient) { 
       }
       setOptions() {
-        this.options = { 'headers': new HttpHeaders(this.auth) , observe: 'response'};
+        this.options = { 'headers': new HttpHeaders(this.auth)};
     }
 
   signin(cred:any){
@@ -35,10 +35,11 @@ export class CommonServiceService {
    }
 
   createPoll(data:any){
-    this.options = { 'headers': new HttpHeaders( {'Authorization':'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjY4Nzc0NzIwLCJleHAiOjE2NzAwNzA3MjAsImp0aSI6IjQ1MjBjZjA5LThmNmEtNDUzMC1hZDNjLTg2MGM5MzQ0OWViNSJ9.ChxsSeer7qpHlz3zLnzdpAddZB-KN3T4fOMSVoWSG60'}) };
+    this.auth =  {'Authorization':'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjY4Nzc0NzIwLCJleHAiOjE2NzAwNzA3MjAsImp0aSI6IjQ1MjBjZjA5LThmNmEtNDUzMC1hZDNjLTg2MGM5MzQ0OWViNSJ9.ChxsSeer7qpHlz3zLnzdpAddZB-KN3T4fOMSVoWSG60'}
+    this.options = { 'headers': new HttpHeaders(this.auth) };
     return this.httpClient.post(this.createPoll_url, data, this.options)    
    }
-
+   
    myPoll(){
 
    }

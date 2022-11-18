@@ -24,8 +24,8 @@ export class CreateSurveyPage implements OnInit {
 
   options(){
     this.poll_data = {
-    topic : '',
-    options :[
+    topic : this.question,
+    vote_options_attributes :[
       {title: this.option1},
       {title: this.option2},
       {title: this.option3},
@@ -46,7 +46,8 @@ export class CreateSurveyPage implements OnInit {
   // }
 
   publishPoll(){
-    this.commonService.createPoll(data).subscribe((response: any) => {
+    this.options()
+    this.commonService.createPoll(this.poll_data).subscribe((response: any) => {
       console.log(response)
       if(response.status.code == 200){
         this.survey()
@@ -86,8 +87,9 @@ export class CreateSurveyPage implements OnInit {
     alert.onDidDismiss().then(() => {
     })
  }
-}
-function data(data: any) {
-  throw new Error('Function not implemented.');
+
+ back(){
+  this.navCtrl.pop()
+ }
 }
 
