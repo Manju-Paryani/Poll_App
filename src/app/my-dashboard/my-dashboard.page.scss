@@ -1,0 +1,131 @@
+ion-content {
+    --background: white;
+
+    .page_wrapper {
+        padding: 24px;
+        position: relative;
+        z-index: 1000;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: linear-gradient(180deg, #346587, #7ac9ff 52%);
+            height: 165px;
+            width: 100%;
+            z-index: -1;
+            clip-path: polygon(100% 0%, 100% 100%, 50% 71%, 0 100%, 0 0, 50% 0);
+        }
+
+
+        .profile {
+            display: flex;
+            margin-bottom: 24px;
+            align-items: center;
+
+            .img_holder {
+                width: 40px;
+                min-width: 40px;
+                height: 40px;
+                margin-right: 16px;
+                background: #f2f2f2;
+                border-radius: 50%;
+                border: 3px solid #7ac9ff;
+                box-shadow: 0 4px 7px #00000025;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .uname {
+                font: normal normal 16px "Roboto";
+                font-weight: 700;
+                color: #FFFFFF;
+            }
+        }
+
+        .card {
+            background: #fff;
+            padding: 24px;
+            filter: drop-shadow(0 5px 11px #00000045);
+            border-radius: 18px;
+            outline: none;
+            overflow: hidden;
+            margin-bottom: 30px;
+
+            .icon-exp {
+                width: 80px;
+                margin: 0 auto;
+            }
+
+            .txt1 {
+                font: normal normal 18px "Roboto";
+                font-weight: 700;
+                text-align: center;
+                color: #d53838;
+            }
+        }
+
+        .dual_button {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 8px;
+
+            .outBtn {
+
+                --background: white;
+                color: #017dc7;
+                font: normal normal 14px "Roboto";
+                letter-spacing: 0.2px;
+                position: relative;
+                --border-radius: 50px;
+                border: 1px solid #017dc7;
+                border-radius: 50px;
+                text-transform: uppercase;
+                --box-shadow: none;
+
+                ion-icon {
+                    margin-right: 6px;
+                }
+
+            }
+
+            .myBtnz {
+                font: normal normal 14px 'Roboto';
+                color: #fff;
+                --border-radius: 50px;
+                letter-spacing: .35px;
+                --box-shadow: none;
+                --background: linear-gradient(270deg, #7ac9ff, #017dc7);
+                --outline: none !important;
+
+            }
+        }
+
+        .survey_details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 12px;
+
+            .card {
+                padding: 10px 15px;
+                .count {
+                    font: normal normal 48px "Roboto";
+                    font-weight: 700;
+                    color: #878f9b;
+                }
+
+                .title {
+                    font: normal normal 13px 'Roboto';
+                    font-weight: 500;
+                    color: #f5561b;
+                }
+            }
+        }
+    }
+}

@@ -10,7 +10,23 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'credential-page',
+    loadChildren: () => import('./credential-page/credential-page.module').then( m => m.CredentialPagePageModule)
   },
+  {
+    path: 'my-dashboard',
+    loadChildren: () => import('./my-dashboard/my-dashboard.module').then( m => m.MyDashboardPageModule)
+  },
+  {
+    path: 'welcome-screen',
+    loadChildren: () => import('./welcome-screen/welcome-screen.module').then( m => m.WelcomeScreenPageModule)
+  },
+  {
+    path: 'create-survey',
+    loadChildren: () => import('./create-survey/create-survey.module').then( m => m.CreateSurveyPageModule)
+  },
+
 ];
 
 @NgModule({
