@@ -13,7 +13,7 @@
       <div class="uname">{{name}}</div>
     </div>
     <!-- animate__delay-1s -->
-    <div class="card  animate__animated animate__zoomIn">
+    <div class="card  animate__animated animate__flipInX">
       <div class="icon-exp" *ngIf="!createdCount || !approvedCount || !answeredPollCount "><img src="assets/images/oops.jpg" alt=""></div>
       <div class="txt1" *ngIf="!createdCount || !approvedCount || !answeredPollCount ">You haven't participated any surveys yet!</div>
       <app-charts *ngIf="createdCount || approvedCount || answeredPollCount "></app-charts>
@@ -42,6 +42,66 @@
       <ion-button class="outBtn" (click)="createSurvey()">Create a Poll</ion-button>
       <ion-button class="myBtnz" (click)="joinSurvey()">View Poll</ion-button>
     </div>
+
+    <div class="user_list animate__animated animate__zoomIn">
+      <div class="title">Question List</div>
+
+      <div class="user_block">
+
+        <div class="user_details">
+          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
+          <div class="right">
+            <div class="bbx approve"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <div class="bbx reject"><ion-icon name="close-outline"></ion-icon></div>
+            <div class="bbx view"><ion-icon name="eye-outline"></ion-icon></div>
+          </div>
+        </div>
+
+        <div class="user_details">
+          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
+          <div class="right">
+            <div class="bbx approve"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <div class="bbx reject"><ion-icon name="close-outline"></ion-icon></div>
+            <div class="bbx view"><ion-icon name="eye-outline"></ion-icon></div>
+          </div>
+        </div>
+
+        <div class="user_details">
+          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
+          <div class="right">
+            <div class="bbx approve"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <div class="bbx reject"><ion-icon name="close-outline"></ion-icon></div>
+            <div class="bbx view"><ion-icon name="eye-outline"></ion-icon></div>
+          </div>
+        </div>
+
+        <div class="user_details">
+          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
+          <div class="right">
+            <div class="bbx approve"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <div class="bbx reject"><ion-icon name="close-outline"></ion-icon></div>
+            <div class="bbx view"><ion-icon name="eye-outline"></ion-icon></div>
+          </div>
+        </div>
+
+        <div class="user_details">
+          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
+          <div class="right">
+            <div class="bbx approve"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <div class="bbx reject"><ion-icon name="close-outline"></ion-icon></div>
+            <div class="bbx view"><ion-icon name="eye-outline"></ion-icon></div>
+          </div>
+        </div>
+
+        <div class="vall">View all</div>
+
+
+      </div>
+
+
+
+    </div>
+
   </div>
 
 </ion-content>
