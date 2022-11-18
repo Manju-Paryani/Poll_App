@@ -7,7 +7,8 @@ import { CommonServiceService } from '../common-service.service';
   styleUrls: ['./my-dashboard.page.scss'],
 })
 export class MyDashboardPage implements OnInit {
-
+  verifiedPolls : any = []
+  unVerifiedPolls : any = []
   constructor(public commonService: CommonServiceService) { 
 
   }
@@ -19,6 +20,10 @@ export class MyDashboardPage implements OnInit {
   dashboard(){
     this.commonService.pollList().subscribe(data =>{
       console.log('poll', data)
+      //let temp = data.data
+      console.log(this.verifiedPolls)
+
+
     })
   }
 
