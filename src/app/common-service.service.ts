@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,9 @@ export class CommonServiceService {
   };options:any
   auth:any
   userData: any
+  verifiedPolls:any
+  unVerifiedPolls:any
+  selectedPoll:any
   
   constructor(public httpClient: HttpClient) { 
       }
@@ -30,7 +34,7 @@ export class CommonServiceService {
     return this.httpClient.post(this.signUp_url, data)    
    }
 
-  pollList(){
+  pollList() : Observable<any>{
     return this.httpClient.get(this.poll_url)    
    }
 

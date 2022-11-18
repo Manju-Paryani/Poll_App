@@ -22,23 +22,19 @@ export class ChartsComponent implements OnInit {
     this.doughnutChart = new Chart(this.dCanvas.nativeElement, {
       type: 'doughnut',
       data: {
-        labels: ['Created ', 'Congress', 'AAP', 'CPM', 'SP'],
+        labels: ['poll Created', 'approval pending', 'answered poll'],
         datasets: [{
-          label: '# of Votes',
-          data: [50, 29, 15, 10, 7],
+          label: 'Poll',
+          data: [50, 29, 15],
           backgroundColor: [
             'rgba(255, 159, 64, 0.2)',
             'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)'
+            'rgba(54, 162, 235, 0.2)'
           ],
           hoverBackgroundColor: [
             '#FFCE56',
             '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#FF6384'
+            '#36A2EB'
           ]
         }]
       }
