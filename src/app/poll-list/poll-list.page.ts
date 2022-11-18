@@ -23,6 +23,7 @@ export class PollListPage implements OnInit {
     this.navCtrl.pop()
   }
   viewPoll(item:any){
+    // debugger
     this.commonService.selectedPoll = item
     this.navCtrl.navigateForward('/answer-survey')
   }

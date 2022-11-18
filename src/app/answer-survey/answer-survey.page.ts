@@ -40,7 +40,7 @@ this.navCtrl.pop()
   }
 
   submit(){
-    debugger
+    // debugger
     let data = {
       "vote_option_id": this.selectedId //this.selectedPoll.vote_options.id
     }

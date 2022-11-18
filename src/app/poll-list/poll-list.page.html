@@ -1,6 +1,108 @@
-
-
 <ion-header>
+  <ion-toolbar>
+    <ion-buttons class="icon_arrowback" slot="start" (click)="back()">
+      <ion-icon style="color: #3880ff;font-size: 22px;padding-left: 15px;" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <!-- <ion-title class="appBar">Pending Polls</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page_wrapper">
+    <div class="user_list animate__animated animate__zoomIn">
+      <div class="title">Question List</div>
+
+      <div class="user_block">
+
+        <div class="user_details" *ngFor="let item of verifiedList" >
+          <div class="left">{{item.poll.topic}}
+          </div>
+          <!-- <img src="../../assets/images/forward_arrow_icon.png" class="icon_arrowback" alt=""> -->
+          <div class="right">
+            <div class="usrname"> &nbsp; Total number of votes: {{item.vote_count}}</div>
+          </div>
+          <img src="../../assets/images/forward_arrow_icon.png" class="icon_arrowback" alt="" style="
+            height: 20px; margin-left: auto; display: block; margin-right: 20px; margin-top: -30px;" (click)="viewPoll(item)">
+        </div>
+
+        <!-- <div class="user_details">
+          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
+          <div class="right">
+            <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div>
+            <div class="bbx approve">
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </div>
+            <div class="bbx reject">
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+            <div class="bbx view">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="user_details">
+          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
+          <div class="right">
+            <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div>
+            <div class="bbx approve">
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </div>
+            <div class="bbx reject">
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+            <div class="bbx view">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="user_details">
+          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
+          <div class="right">
+            <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div>
+            <div class="bbx approve">
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </div>
+            <div class="bbx reject">
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+            <div class="bbx view">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="user_details">
+          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
+          <div class="right">
+            <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div>
+            <div class="bbx approve">
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </div>
+            <div class="bbx reject">
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+            <div class="bbx view">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="vall">View all</div> -->
+
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+</ion-content>
+
+
+<!-- <ion-header>
   <ion-toolbar >
     <ion-buttons class="icon_arrowback" slot="start" (click)="back()">
       <ion-icon style="color: #3880ff;font-size: 22px;padding-left: 15px;" name="arrow-back-outline"></ion-icon>
@@ -15,4 +117,4 @@
     <ion-label>{{item.poll.topic}}</ion-label>
 
   </ion-card>
-</ion-content>
+</ion-content> -->
