@@ -8,9 +8,10 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome-screen',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'credential-page',
     loadChildren: () => import('./credential-page/credential-page.module').then( m => m.CredentialPagePageModule)
   },
