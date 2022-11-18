@@ -8,6 +8,12 @@ import { CommonServiceService } from '../common-service.service';
   styleUrls: ['./my-dashboard.page.scss'],
 })
 export class MyDashboardPage implements OnInit {
+back() {
+throw new Error('Method not implemented.');
+}
+pendingSurvey() {
+  this.navCtrl.navigateForward('/pending-polls')
+}
   verifiedPolls: any = []
   unVerifiedPolls: any = []
   userData: any

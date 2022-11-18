@@ -7,7 +7,6 @@ ion-header {
     font-weight: 500;
     color: #172834;
     padding-left: 10px;
-
   }
 }
 ion-content {
@@ -120,7 +119,17 @@ ion-content {
 
       }
     }
-
+.myBtnz2{
+  font: normal normal 14px 'Roboto';
+  color: #fff;
+  --border-radius: 50px;
+  letter-spacing: .35px;
+  --box-shadow: none;
+  --background: linear-gradient(270deg, #7ac9ff, #017dc7);
+  --outline: none !important;
+  height: 51px;
+  width: 100%;
+}
     .survey_details {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
