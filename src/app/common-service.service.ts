@@ -1,6 +1,29 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+var axios = require('axios');
+var data = JSON.stringify({
+  "user": {
+    "email": "alok@test.com",
+    "password": "mypassword"
+  }
+});
 
+var config = {
+  method: 'post',
+  url: 'https://api.cherryko.tk/users/sign_in',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+// axios(config)
+// .then(function (response) {
+//   console.log(JSON.stringify(response.data));
+// })
+// .catch(function (error) {
+//   console.log(error);
+// });
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +33,7 @@ export class CommonServiceService {
   poll_url = 'https://api.cherryko.tk/api/v1/polls'
   createPoll_url = 'https://api.cherryko.tk/api/v1/polls'
   myPoll_url = 'https://api.cherryko.tk/api/v1/polls'
-  submitPoll_url="https://api.cherryko.tk/api/v1/polls/3/vote"
+  submitPoll_url="https://api.cherryko.tk/api/v1/polls/"+this.id+"/vote"
   header =  {
     'Content-Type' : "application/json"
   };options:any
@@ -24,7 +47,23 @@ export class CommonServiceService {
     }
 
   signin(cred:any){
-   return this.httpClient.post(this.signin_url, cred)    
+    var data = JSON.stringify({
+      "user": {
+        "email": "alok@test.com",
+        "password": "mypassword"
+      }
+    });
+    
+    var config = {
+      method: 'post',
+      url: 'https://api.cherryko.tk/users/sign_in',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    return axios.post(config)
+  //  return this.httpClient.post(this.signin_url, cred)    
   }
 
   signUp(data:any){

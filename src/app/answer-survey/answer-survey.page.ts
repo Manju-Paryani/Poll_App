@@ -29,7 +29,7 @@ back() {
   }
 
   submit(){
-    debugger
+    // debugger
     let data = {
       "vote_option_id": 5
   }
