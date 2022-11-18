@@ -11,7 +11,7 @@ export class CommonServiceService {
   poll_url = 'https://api.cherryko.tk/api/v1/polls'
   createPoll_url = 'https://api.cherryko.tk/api/v1/polls'
   myPoll_url = 'https://api.cherryko.tk/api/v1/polls'
-  submitPoll_url="https://api.cherryko.tk/api/v1/polls/3/vote"
+  submitPoll_url="https://api.cherryko.tk/api/v1/polls/4/vote"
   header =  {
     'Content-Type' : "application/json"
   };options:any
@@ -20,6 +20,10 @@ export class CommonServiceService {
   verifiedPolls:any
   unVerifiedPolls:any
   selectedPoll:any
+  answeredPollCount:any
+  approvedCount:any
+  createdCount:any
+  totalPollCount:any
   
   constructor(public httpClient: HttpClient) { 
       }
@@ -28,7 +32,7 @@ export class CommonServiceService {
     }
 
   signin(cred:any){
-   return this.httpClient.post(this.signin_url, cred)    
+   return this.httpClient.post(this.signin_url, cred,  {observe: 'response'})    
   }
 
   signUp(data:any){

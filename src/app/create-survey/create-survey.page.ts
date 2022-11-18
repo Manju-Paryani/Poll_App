@@ -46,12 +46,18 @@ export class CreateSurveyPage implements OnInit {
   // }
 
   publishPoll(){
+    if(this.option1 && this.option2){
     this.options()
-    this.commonService.createPoll(this.poll_data).subscribe((response: any) => {
-      console.log(response)
-        this.survey()
-        console.log("post submitted")
-  });
+      this.commonService.createPoll(this.poll_data).subscribe((response: any) => {
+        console.log(response)
+          this.survey()
+          console.log("post submitted")
+    });
+  }else{
+    
+  }
+
+
 }
   async survey(){
 

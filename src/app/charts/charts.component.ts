@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'chart.js'
+import { CommonServiceService } from '../common-service.service';
 
 Chart.register(...registerables)
 
@@ -11,11 +12,17 @@ Chart.register(...registerables)
 export class ChartsComponent implements OnInit {
   @ViewChild('doughnutCanvas', { static: true }) dCanvas : any;
   doughnutChart: any;
+  noData = false
   public dounutChartOption:any;
-  constructor() {
+  constructor(public commonService: CommonServiceService) {
   }
   ngOnInit() {
     this.doughnutChartMethod();
+    if(this.commonService.createdCount == 0 && this.commonService.approvedCount == 0 && this.commonService.answeredPollCount == 0){
+      this.noData = true
+    }else{
+      this.noData= false
+    }
   }
 
   doughnutChartMethod() {
@@ -25,7 +32,7 @@ export class ChartsComponent implements OnInit {
         labels: ['poll Created', 'approval pending', 'answered poll'],
         datasets: [{
           label: 'Poll',
-          data: [50, 29, 15],
+          data: [this.commonService.createdCount, this.commonService.approvedCount, this.commonService.answeredPollCount],
           backgroundColor: [
             'rgba(255, 159, 64, 0.2)',
             'rgba(255, 99, 132, 0.2)',

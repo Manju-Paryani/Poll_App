@@ -13,7 +13,6 @@ export class CredentialPagePage implements OnInit {
 type = 'signin'
 options:any
 auth:any
-userType = 'user'
 
   username: string = '';
   password: any;
@@ -26,6 +25,7 @@ userType = 'user'
   passwordIcon1: string = 'eye-off';
   show: boolean = false;
   ey1: any = false;
+  incorrectPassword:any = false
   constructor(public commonService: CommonServiceService,
     public navCtrl : NavController) { }
 
@@ -72,27 +72,32 @@ userType = 'user'
     })
   }
   signinFunc(){
+    this.incorrectPassword = false
     let cred= { "user": { 
       "email": this.username, 
     "password": this.password
   }}
     this.commonService.signin(cred).subscribe((response: any) => {
       console.log('signin success',response)
-      if(response.status.code == 200){
-
+      console.log(response.headers.get('Authorization'))
+      if(response.body?.status?.code == 200){
         this.commonService.userData = response.data
         this.navCtrl.navigateForward('/my-dashboard')
+      }else{
+        this.incorrectPassword = true
       }
+    },err=>{
+      this.incorrectPassword = true
     })
   }
 
-  userTypeCheck(userType:any){
-    if(userType == 'user'){
-      this.userType = 'user'
-    }else if(userType == 'admin'){
-      this.userType = 'admin'
-    }
-  }
+  // userTypeCheck(userType:any){
+  //   if(userType == 'user'){
+  //     this.userType = 'user'
+  //   }else if(userType == 'admin'){
+  //     this.userType = 'admin'
+  //   }
+  // }
 
   checkevent(btnName:any){
     if(this.type == 'signin'){
