@@ -15,7 +15,8 @@ ion-content {
           display: flex;
           font: normal normal 14px 'Roboto';
           font-weight: 500;
-          color: #273d4c;;
+          color: #273d4c;
+          ;
         }
 
         ion-textarea.custom-textarea {
@@ -32,8 +33,28 @@ ion-content {
       .option_block {
         background: #fff;
         padding: 16px;
-        border-radius: 20px 20px 0 0;
-        box-shadow: 0 -5px 10px #0000004f;
+        border-radius: 0;
+        box-shadow: 0 -5px 10px #0000002f;
+
+        ion-item {
+          ion-label {
+            background: rgba(241, 241, 241, 0.9450980392);
+            width: 24px;
+            height: 24px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border-radius: 50%;
+            font-weight: bold;
+            color: #5e71cd;
+          }
+
+          ion-input {
+            font-size: 14px;
+          }
+        }
       }
     }
 
@@ -45,33 +66,33 @@ ion-content {
 
       .outBtn {
 
-          --background: white;
-          color: #017dc7;
-          font: normal normal 14px "Roboto";
-          letter-spacing: 0.2px;
-          position: relative;
-          --border-radius: 50px;
-          border: 1px solid #017dc7;
-          border-radius: 50px;
-          text-transform: uppercase;
-          --box-shadow: none;
+        --background: white;
+        color: #017dc7;
+        font: normal normal 14px "Roboto";
+        letter-spacing: 0.2px;
+        position: relative;
+        --border-radius: 50px;
+        border: 1px solid #017dc7;
+        border-radius: 50px;
+        text-transform: uppercase;
+        --box-shadow: none;
 
-          ion-icon {
-              margin-right: 6px;
-          }
+        ion-icon {
+          margin-right: 6px;
+        }
 
       }
 
       .myBtnz {
-          font: normal normal 14px 'Roboto';
-          color: #fff;
-          --border-radius: 50px;
-          letter-spacing: .35px;
-          --box-shadow: none;
-          --background: linear-gradient(270deg, #7ac9ff, #017dc7);
-          --outline: none !important;
+        font: normal normal 14px 'Roboto';
+        color: #fff;
+        --border-radius: 50px;
+        letter-spacing: .35px;
+        --box-shadow: none;
+        --background: linear-gradient(270deg, #7ac9ff, #017dc7);
+        --outline: none !important;
 
       }
-  }
+    }
   }
 }
