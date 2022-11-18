@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="appBar">
-    <ion-icon style="color: #3880ff;" name="arrow-back-outline"></ion-icon>
+    <ion-icon style="color: #3880ff;" name="arrow-back-outline" (click)="back()"></ion-icon>
     <ion-title>Create Survey</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,7 +8,7 @@
 <ion-content>
   <div class="page_wrapper">
 
-    <ion-item style="font-size: 14px;">
+    <!-- <ion-item style="font-size: 14px;">
       <ion-label>Choose Category</ion-label>
       <ion-select interface="action-sheet" placeholder="Select Category" cancelText="Cancel Choice">
         <ion-select-option value="apples">Sports</ion-select-option>
@@ -16,7 +16,7 @@
         <ion-select-option value="bananas">General Knowledge</ion-select-option>
         <ion-select-option value="bananas">Others</ion-select-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
 
     <div class="my_question  animate__animated animate__zoomIn">
       <div class="question">
