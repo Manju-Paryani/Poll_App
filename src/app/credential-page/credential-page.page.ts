@@ -1,7 +1,7 @@
 
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { CommonServiceService } from '../common-service.service';
 
 @Component({
@@ -27,7 +27,7 @@ auth:any
   ey1: any = false;
   incorrectPassword:any = false
   constructor(public commonService: CommonServiceService,
-    public navCtrl : NavController) { }
+    public navCtrl : NavController, public alert:AlertController) { }
 
   ngOnInit() {
 
@@ -59,16 +59,38 @@ auth:any
   setOptions() {
     this.options = { 'headers': new HttpHeaders(this.auth) };
 }
+errorText = false
   signupFunc(){
+    if(this.set_password != this.confirm_password)
+    {
+      this.errorText = true
+    }else{
+      this.errorText = false
       let cred= { "user": { "email": this.email, 
       "password": this.set_password,
     "name" : this.fullname } }
     this.commonService.signUp(cred).subscribe((response: any) => {
       if(response.status.code == 200){
         this.commonService.userData = response.data
-        this.navCtrl.navigateForward('/my-dashboard')
+        this.type = 'signin'
+        this.presentAlert('Sign Up successful. Please sign in!');
+        
       }
       console.log('signup success',response)
+    })
+  }
+  }
+  async presentAlert(message: string) {
+    const alert = await this.alert.create({
+      // header: header,
+      message: message,
+      buttons: ['OK'],
+      cssClass: 'ieco-alert',
+      mode: 'ios',
+    });
+  
+    await alert.present();
+    alert.onDidDismiss().then(() => {
     })
   }
   signinFunc(){
@@ -110,7 +132,12 @@ auth:any
         return false
       }
   }else if(btnName == 'signup'){
-return false
+    if(this.fullname && this.email && this.set_password)
+    {
+      return true
+    }else{
+      return false
+    }
   }else{
     return false
   }
