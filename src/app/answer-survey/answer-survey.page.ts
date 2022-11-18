@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./answer-survey.page.scss'],
 })
 export class AnswerSurveyPage implements OnInit {
+back() {
+throw new Error('Method not implemented.');
+}
 
   constructor() { }
 
