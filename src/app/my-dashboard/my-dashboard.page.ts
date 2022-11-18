@@ -8,10 +8,10 @@ import { CommonServiceService } from '../common-service.service';
   styleUrls: ['./my-dashboard.page.scss'],
 })
 export class MyDashboardPage implements OnInit {
-  verifiedPolls : any = []
-  unVerifiedPolls : any = []
+  verifiedPolls: any = []
+  unVerifiedPolls: any = []
   constructor(public commonService: CommonServiceService,
-    public navCtrl: NavController) { 
+    public navCtrl: NavController) {
 
   }
 
@@ -19,18 +19,28 @@ export class MyDashboardPage implements OnInit {
     this.dashboard()
   }
 
-  dashboard(){
-    this.commonService.pollList().subscribe(data =>{
-      console.log('poll', data)
-      //let temp = data.data
+  dashboard() {
+    this.commonService.pollList().subscribe(res => {
+      console.log('poll', res)
+      try {
+        this.commonService.verifiedPolls = this.verifiedPolls = res.data.unverified
+        this.commonService.unVerifiedPolls = this.unVerifiedPolls = res.data.verified
+      } catch (err) {
+        console.log(err)
+      }
+
       console.log(this.verifiedPolls)
 
 
     })
   }
 
-  createSurvey(){
+  createSurvey() {
     this.navCtrl.navigateForward('/create-survey')
+  }
+  joinSurvey(){
+    this.navCtrl.navigateForward('/poll-list')
+
   }
 
   JoinASurvey(){

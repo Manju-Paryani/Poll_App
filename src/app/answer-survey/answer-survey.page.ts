@@ -16,9 +16,10 @@ export class AnswerSurveyPage implements OnInit {
   option4: any = "Don Bradman";
   data: any;
   
+  selectedPoll:any
   
 back() {
-// throw new Error('Method not implemented.');
+this.navCtrl.pop()
 }
 
   constructor(public navCtrl : NavController,
@@ -26,12 +27,14 @@ back() {
     public commonService: CommonServiceService) { }
 
   ngOnInit() {
+    this.selectedPoll = this.commonService.selectedPoll
+
   }
 
   submit(){
     // debugger
     let data = {
-      "vote_option_id": 5
+      "vote_option_id": 13
   }
     this.commonService.submitPoll(data).subscribe((response: any) => {
       console.log(response)

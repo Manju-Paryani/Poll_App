@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'answer-survey',
     loadChildren: () => import('./answer-survey/answer-survey.module').then( m => m.AnswerSurveyPageModule)
+  },  {
+    path: 'poll-list',
+    loadChildren: () => import('./poll-list/poll-list.module').then( m => m.PollListPageModule)
   },
+
 
 ];
 

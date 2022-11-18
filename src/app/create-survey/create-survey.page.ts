@@ -49,10 +49,8 @@ export class CreateSurveyPage implements OnInit {
     this.options()
     this.commonService.createPoll(this.poll_data).subscribe((response: any) => {
       console.log(response)
-      if(response.status.code == 200){
         this.survey()
         console.log("post submitted")
-      }
   });
 }
   async survey(){
@@ -60,6 +58,7 @@ export class CreateSurveyPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Successfully',
       message : `You have submitted the Poll.`,
+      backdropDismiss: false,
       buttons: [
         {
           text : `Go to Dashboard`,

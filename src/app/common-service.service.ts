@@ -1,12 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-var axios = require('axios');
-var data = JSON.stringify({
-  "user": {
-    "email": "alok@test.com",
-    "password": "mypassword"
-  }
-});
 
 var config = {
   method: 'post',
@@ -39,6 +32,9 @@ export class CommonServiceService {
   };options:any
   auth:any
   userData: any
+  verifiedPolls:any
+  unVerifiedPolls:any
+  selectedPoll:any
   
   constructor(public httpClient: HttpClient) { 
       }
@@ -70,7 +66,7 @@ export class CommonServiceService {
     return this.httpClient.post(this.signUp_url, data)    
    }
 
-  pollList(){
+  pollList() : Observable<any>{
     return this.httpClient.get(this.poll_url)    
    }
 
