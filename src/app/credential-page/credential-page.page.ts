@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CommonServiceService } from '../common-service.service';
@@ -13,6 +13,16 @@ type = 'signin'
 options:any
 auth:any
 userType = 'user'
+
+  username: string = '';
+  password: any;
+  fullname: string = '';
+  email: string = '';
+  otp!: number;
+  mobileNo: number | undefined;
+  set_password: any;
+  confirm_password: any;
+
   constructor(public commonService: CommonServiceService) { }
 
   ngOnInit() {
