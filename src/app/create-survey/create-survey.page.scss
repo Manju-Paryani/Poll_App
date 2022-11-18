@@ -60,7 +60,7 @@ ion-content {
 
     .dual_button {
       display: grid;
-      grid-template-columns: repeat(2, auto);
+      grid-template-columns: repeat(1, auto);
       grid-gap: 8px;
       margin-top: 24px;
 
@@ -91,6 +91,7 @@ ion-content {
         --box-shadow: none;
         --background: linear-gradient(270deg, #7ac9ff, #017dc7);
         --outline: none !important;
+        height: 51px;
 
       }
     }

@@ -16,7 +16,15 @@ ion-content {
           font: normal normal 14px 'Roboto';
           font-weight: 500;
           color: #273d4c;
-          ;
+
+        }
+
+        .qsn {
+          padding: 14px;
+          font-family: 'Roboto';
+          font-weight: 400;
+          color: #fff;
+          font-size: 18px;
         }
 
         ion-textarea.custom-textarea {
@@ -38,18 +46,18 @@ ion-content {
 
         ion-item {
           ion-label {
-            &.lblz{
+            &.lblz {
               background: rgba(241, 241, 241, 0.9450980392);
-            width: 24px;
-            height: 24px;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            border-radius: 50%;
-            font-weight: bold;
-            color: #5e71cd;
+              width: 24px;
+              height: 24px;
+              margin: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 14px;
+              border-radius: 50%;
+              font-weight: bold;
+              color: #5e71cd;
             }
           }
 
@@ -59,5 +67,26 @@ ion-content {
         }
       }
     }
+
+
+    .btn_holder {
+      margin-top: 24px;
+      .myBtnz {
+        font: normal normal 14px 'Roboto';
+        color: #fff;
+        --border-radius: 50px;
+        letter-spacing: .35px;
+        --box-shadow: none;
+        --background: linear-gradient(270deg, #7ac9ff, #017dc7);
+        --outline: none !important;
+        width: 100%;
+        height: 51px;
+
+      }
+        ion-icon {
+          margin-right: 6px;
+        }
+
+      }
+    }
   }
-}

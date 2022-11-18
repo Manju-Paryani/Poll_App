@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>answer-survey</ion-title>
+    <ion-title>
+      back
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,7 +10,7 @@
 
   <div class="page_wrapper">
 
-    <ion-item style="font-size: 14px;">
+    <!-- <ion-item style="font-size: 14px;">
       <ion-label>Choose Category</ion-label>
       <ion-select interface="action-sheet" placeholder="Select Category" cancelText="Cancel Choice">
         <ion-select-option value="apples">Sports</ion-select-option>
@@ -16,7 +18,7 @@
         <ion-select-option value="bananas">General Knowledge</ion-select-option>
         <ion-select-option value="bananas">Others</ion-select-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
 
     <div class="my_question">
       <div class="question">
@@ -30,31 +32,26 @@
         <ion-list>
           <ion-radio-group [allowEmptySelection]="true" value="turtles">
             <ion-item>
-              <ion-label class="lblz">A</ion-label>
-              <ion-label >Dogs</ion-label>
+              <ion-label>Sachin Tendulkar</ion-label>
               <ion-radio slot="end" value="dogs"></ion-radio>
             </ion-item>
 
             <ion-item>
-              <ion-label class="lblz">B</ion-label>
-              <ion-label>Cats</ion-label>
+              <ion-label>Virat Kohli</ion-label>
               <ion-radio slot="end" value="cats"></ion-radio>
             </ion-item>
 
             <ion-item>
-              <ion-label class="lblz">C</ion-label>
-              <ion-label>Turtles</ion-label>
+              <ion-label>Kumara Sangakara</ion-label>
               <ion-radio slot="end" value="turtles"></ion-radio>
             </ion-item>
 
             <ion-item>
-              <ion-label class="lblz">D</ion-label>
-              <ion-label>Fish</ion-label>
+              <ion-label>Don Bradman</ion-label>
               <ion-radio slot="end" value="fish"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-list>
-
       </div>
 
 
@@ -63,9 +60,8 @@
 
 
 
-    <div class="dual_button">
-      <ion-button class="outBtn">Post</ion-button>
-      <ion-button class="myBtnz">Post & Add New</ion-button>
+    <div class="btn_holder">
+      <ion-button class="myBtnz">SUBMIT</ion-button>
     </div>
 
 
