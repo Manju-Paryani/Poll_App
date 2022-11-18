@@ -21,29 +21,34 @@
     <div class="my_question  animate__animated animate__zoomIn">
       <div class="question">
         <ion-label class="clabel">Your Question?</ion-label>
-        <ion-textarea class="custom-textarea " placeholder="Enter question here" [clearOnEdit]="true"></ion-textarea>
+          <ion-textarea class="custom-textarea " placeholder="Enter question here" [clearOnEdit]="true"  [(ngModel)]="question" [ngModelOptions]="{standalone: true}"></ion-textarea>
+
       </div>
 
       <div class="option_block">
         <ion-list>
           <ion-item>
             <ion-label>A</ion-label>
-            <ion-input placeholder="Enter Option"></ion-input>
+            <ion-input placeholder="Enter Options" [(ngModel)]="option1" [ngModelOptions]="{standalone: true}"></ion-input>
+            
           </ion-item>
 
           <ion-item>
             <ion-label>B</ion-label>
-            <ion-input placeholder="Enter Option"></ion-input>
+            <ion-input placeholder="Enter Options" [(ngModel)]="option2" [ngModelOptions]="{standalone: true}"></ion-input>
+            
           </ion-item>
 
           <ion-item>
             <ion-label>C</ion-label>
-            <ion-input placeholder="Enter Option"></ion-input>
+            <ion-input placeholder="Enter Options" [(ngModel)]="option3" [ngModelOptions]="{standalone: true}"></ion-input>
+            
           </ion-item>
 
           <ion-item>
             <ion-label>D</ion-label>
-            <ion-input placeholder="Enter Option"></ion-input>
+            <ion-input placeholder="Enter Options" [(ngModel)]="option4" [ngModelOptions]="{standalone: true}"></ion-input>
+            
           </ion-item>
         </ion-list>
 
@@ -55,8 +60,9 @@
 
 
 
-    <div class="dual_button animate__animated animate__slideInUp">
-      <ion-button class="myBtnz">Post</ion-button>
+    <div class="dual_button">
+      <ion-button class="myBtnz" (click)="publishPoll()">Post</ion-button>
+
     </div>
 
 
