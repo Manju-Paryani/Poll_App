@@ -36,6 +36,7 @@ export class CommonServiceService {
   createPoll_url = 'https://api.cherryko.tk/api/v1/polls'
   myPoll_url = 'https://api.cherryko.tk/api/v1/polls'
   // submitPoll_url="https://api.cherryko.tk/api/v1/polls/3/vote"
+
   header =  {
     'Content-Type' : "application/json"
   };options:any
@@ -48,6 +49,7 @@ export class CommonServiceService {
   approvedCount:any
   createdCount:any
   totalPollCount:any
+  isAdmin:any 
   
   constructor(public httpClient: HttpClient) { 
       }
@@ -64,19 +66,39 @@ export class CommonServiceService {
    }
 
   pollList() : Observable<any>{
-    return this.httpClient.get(this.poll_url)    
+    let auth = {
+      'Authorization' : this.auth
+    }
+    this.options = { 'headers': new HttpHeaders(auth) };
+    return this.httpClient.get(this.poll_url,this.options)    
    }
 
   createPoll(data:any){
-    this.auth =  {'Authorization':'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjY4Nzc0NzIwLCJleHAiOjE2NzAwNzA3MjAsImp0aSI6IjQ1MjBjZjA5LThmNmEtNDUzMC1hZDNjLTg2MGM5MzQ0OWViNSJ9.ChxsSeer7qpHlz3zLnzdpAddZB-KN3T4fOMSVoWSG60'}
-    this.options = { 'headers': new HttpHeaders(this.auth) };
+   let auth= {
+      'Authorization' : this.auth
+    }
+    this.options = { 'headers': new HttpHeaders(auth) };
     return this.httpClient.post(this.createPoll_url, data, this.options)    
    }
    
    submitPoll(data: any, id: number){
+    let auth = {
+      'Authorization' : this.auth
+    }
     let submitPoll_url="https://api.cherryko.tk/api/v1/polls/"+id+"/vote";
-    this.auth =  {'Authorization':'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjY4Nzc0NzIwLCJleHAiOjE2NzAwNzA3MjAsImp0aSI6IjQ1MjBjZjA5LThmNmEtNDUzMC1hZDNjLTg2MGM5MzQ0OWViNSJ9.ChxsSeer7qpHlz3zLnzdpAddZB-KN3T4fOMSVoWSG60'}
-    this.options = { 'headers': new HttpHeaders(this.auth) };
+    this.options = { 'headers': new HttpHeaders(auth) };
     return this.httpClient.post(submitPoll_url, data, this.options)   
+   }
+
+   verifyPoll( id: number) : Observable<any>{
+    let auth = {
+      'Authorization' : this.auth
+    }
+    let data = {
+      "vote_option_id": ''
+  }
+    let verifyPoll_url="https://api.cherryko.tk/api/v1/polls/"+id+"/verify_poll";
+    this.options = { 'headers': new HttpHeaders(auth) };
+    return this.httpClient.post(verifyPoll_url, data, this.options)   
    }
 }

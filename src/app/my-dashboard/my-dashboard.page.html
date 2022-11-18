@@ -7,9 +7,9 @@
     top: 50%;
     transform: translateY(-50%);
 " slot="start" (click)="back()">
-      <ion-icon style="color: #d42e2e;font-size: 22px;padding-left: 15px;" name="power-outline"></ion-icon>
+      <ion-icon style="color: #d42e2e;font-size: 22px;padding-left: 15px;" name="power-outline" (click)="logout()"></ion-icon>
     </ion-buttons>
-    <ion-title class="appBar">Public Survey</ion-title>
+    <ion-title class="appBar"></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -54,7 +54,7 @@
       <ion-button class="myBtnz" (click)="joinSurvey()">View Poll</ion-button>
     </div>
 
-    <ion-button class="myBtnz2" style="margin-top:15px" (click)="pendingSurvey()">Approval Pending List</ion-button>
+    <ion-button class="myBtnz2" style="margin-top:15px" *ngIf="isAdmin" (click)="pendingSurvey()">Approval Pending List</ion-button>
 
   </div>
 

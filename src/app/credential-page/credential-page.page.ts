@@ -81,7 +81,9 @@ auth:any
       console.log('signin success',response)
       console.log(response.headers.get('Authorization'))
       if(response.body?.status?.code == 200){
-        this.commonService.userData = response.data
+        this.commonService.userData = response.body.data
+        this.commonService.auth = response.headers.get('Authorization')
+        this.commonService.isAdmin = response.body.data.is_admin
         this.navCtrl.navigateForward('/my-dashboard')
       }else{
         this.incorrectPassword = true

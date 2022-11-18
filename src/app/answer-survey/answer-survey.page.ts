@@ -40,15 +40,13 @@ this.navCtrl.pop()
   }
 
   submit(){
-    debugger
     let data = {
-      "vote_option_id": this.selectedId //this.selectedPoll.vote_options.id
+      "vote_option_id": this.selectedId
     }
     let id = {
       "poll_id": this.selectedPoll.poll.id,
     }
     this.commonService.submitPoll(data, this.selectedPoll.poll.id).subscribe((response: any) => {
-      // console.log("id",this.selectedPoll.vote_options.id)
       console.log("res",response)
   
     this.presentAlert('You have successfully submitted the poll');

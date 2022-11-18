@@ -1,21 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="appBar">Pending Polls</ion-title>
+  <ion-toolbar >
+    <ion-buttons class="icon_arrowback" slot="start" (click)="back()">
+      <ion-icon style="color: #3880ff;font-size: 22px;padding-left: 15px;" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="appBar">
+       <span></span></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="page_wrapper">
-    <div class="user_list animate__animated animate__zoomIn">
+    <div class="user_block" *ngIf="unVerifiedPolls.length == 0">
+      <div class="user_details">
+        <div class="left">No Pending Approval</div>
+      </div>
+    </div>
+    <div class="user_list animate__animated animate__zoomIn" *ngIf="unVerifiedPolls.length > 0">
       <div class="title">Question List</div>
+
 
       <div class="user_block">
 
-        <div class="user_details">
-          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
+        <div class="user_details" *ngFor="let item of unVerifiedPolls">
+          <div class="left">{{item.poll.topic}}</div>
           <div class="right">
             <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div>
-            <div class="bbx approve">
+            <div class="bbx approve" (click)="verifyPoll(item)">
               <ion-icon name="checkmark-outline"></ion-icon>
             </div>
             <div class="bbx reject">
@@ -26,72 +36,7 @@
             </div>
           </div>
         </div>
-
-        <div class="user_details">
-          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
-          <div class="right">
-            <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div>
-            <div class="bbx approve">
-              <ion-icon name="checkmark-outline"></ion-icon>
-            </div>
-            <div class="bbx reject">
-              <ion-icon name="close-outline"></ion-icon>
-            </div>
-            <div class="bbx view">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-          </div>
-        </div>
-
-        <div class="user_details">
-          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
-          <div class="right">
-            <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div>
-            <div class="bbx approve">
-              <ion-icon name="checkmark-outline"></ion-icon>
-            </div>
-            <div class="bbx reject">
-              <ion-icon name="close-outline"></ion-icon>
-            </div>
-            <div class="bbx view">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-          </div>
-        </div>
-
-        <div class="user_details">
-          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
-          <div class="right">
-            <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div>
-            <div class="bbx approve">
-              <ion-icon name="checkmark-outline"></ion-icon>
-            </div>
-            <div class="bbx reject">
-              <ion-icon name="close-outline"></ion-icon>
-            </div>
-            <div class="bbx view">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-          </div>
-        </div>
-
-        <div class="user_details">
-          <div class="left">Lorem ipsum dolor sit amet consectetur?</div>
-          <div class="right">
-            <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div>
-            <div class="bbx approve">
-              <ion-icon name="checkmark-outline"></ion-icon>
-            </div>
-            <div class="bbx reject">
-              <ion-icon name="close-outline"></ion-icon>
-            </div>
-            <div class="bbx view">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="vall">View all</div> -->
+<!-- <div class="vall">View all</div> -->
 
 
       </div>
