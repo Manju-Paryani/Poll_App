@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { CommonServiceService } from '../common-service.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { CommonServiceService } from '../common-service.service';
 export class MyDashboardPage implements OnInit {
   verifiedPolls : any = []
   unVerifiedPolls : any = []
-  constructor(public commonService: CommonServiceService) { 
+  constructor(public commonService: CommonServiceService,
+    public navCtrl: NavController) { 
 
   }
 
@@ -25,6 +27,10 @@ export class MyDashboardPage implements OnInit {
 
 
     })
+  }
+
+  createSurvey(){
+    this.navCtrl.navigateForward('/create-survey')
   }
 
 }
