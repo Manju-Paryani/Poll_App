@@ -26,7 +26,7 @@
     <div class="my_question animate__animated animate__zoomIn">
       <div class="question">
         <ion-label class="clabel">Question?</ion-label>
-        <div class="qsn">{{question}}</div>
+        <div class="qsn">{{this.selectedPoll.poll.topic}}</div>
       </div>
 
       <div class="option_block">
@@ -34,27 +34,27 @@
 
         <ion-list class="ansBar">
           <ion-radio-group [allowEmptySelection]="true" value="turtles">
-            <ion-item style="--per : 50%; ">
+            <ion-item style="--per : 50%; " (click)="selected_option(this.selectedPoll.vote_options[0])">
               <div class="percentz">50%</div>
-              <ion-label>{{option1}}</ion-label>
+              <ion-label>{{this.selectedPoll.vote_options[0].title}}</ion-label>
               <ion-radio slot="end" value="dogs"></ion-radio>
             </ion-item>
 
-            <ion-item style="--per : 20%; ">
+            <ion-item style="--per : 20%; " (click)="selected_option(this.selectedPoll.vote_options[1])">
               <div class="percentz">20%</div>
-              <ion-label>{{option2}}</ion-label>
+              <ion-label>{{this.selectedPoll.vote_options[1].title}}</ion-label>
               <ion-radio slot="end" value="cats"></ion-radio>
             </ion-item>
 
-            <ion-item style="--per : 20%; ">
+            <ion-item style="--per : 20%; " *ngIf="this.selectedPoll.vote_options[2]" (click)="selected_option(this.selectedPoll.vote_options[2])">
               <div class="percentz">20%</div>
-              <ion-label>{{option3}}</ion-label>
+              <ion-label>{{this.selectedPoll.vote_options[2].title}}</ion-label>
               <ion-radio slot="end" value="turtles"></ion-radio>
             </ion-item>
 
-            <ion-item style="--per : 10%; ">
+            <ion-item style="--per : 10%; " *ngIf="this.selectedPoll.vote_options[3]" (click)="selected_option(this.selectedPoll.vote_options[3])">
               <div class="percentz">10%</div>
-              <ion-label >{{option4}}</ion-label>
+              <ion-label >{{this.selectedPoll.vote_options[3].title}}</ion-label>
               <ion-radio slot="end" value="fish"></ion-radio>
             </ion-item>
           </ion-radio-group>

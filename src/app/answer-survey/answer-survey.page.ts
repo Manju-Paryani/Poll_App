@@ -9,14 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnswerSurveyPage implements OnInit {
 
-  question: any = "Who has made 100 Centuries in cricket?";
-  option1:any = "Sachin Tendulkar"; 
-  option2: any = "Virat Kohli";
-  option3: any = "Kumara Sangakara";
-  option4: any = "Don Bradman";
+  question: any ;
+  option1:any ; 
+  option2: any ;
+  option3: any ;
+  option4: any ;
   data: any;
   
   selectedPoll:any
+  selectedId: any;
+  // submitPoll_url="https://api.cherryko.tk/api/v1/polls/3/vote"
   
 back() {
 this.navCtrl.pop()
@@ -28,17 +30,32 @@ this.navCtrl.pop()
 
   ngOnInit() {
     this.selectedPoll = this.commonService.selectedPoll
+    console.log(this.selectedPoll)
 
+  }
+
+  selected_option(item: any ){
+
+    this.selectedId = item.id
   }
 
   submit(){
     debugger
     let data = {
-      "vote_option_id": 13
-  }
-    this.commonService.submitPoll(data).subscribe((response: any) => {
-      console.log(response)
+      "vote_option_id": this.selectedId //this.selectedPoll.vote_options.id
+    }
+    let id = {
+      "poll_id": this.selectedPoll.poll.id,
+    }
+    this.commonService.submitPoll(data, this.selectedPoll.poll.id).subscribe((response: any) => {
+      // console.log("id",this.selectedPoll.vote_options.id)
+      console.log("res",response)
+  
     this.presentAlert('You have successfully submitted the poll');
+    },err =>{
+      if(err.status == 422){
+        this.presentAlert('You have Already participated in the poll');
+      }
     });
   }
 
@@ -58,4 +75,9 @@ this.navCtrl.pop()
   }
 
 } 
+
+
+// function id(data: { vote_option_id: number; }, id: any) {
+//   throw new Error('Function not implemented.');
+// }
 

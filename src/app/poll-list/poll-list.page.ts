@@ -16,7 +16,7 @@ export class PollListPage implements OnInit {
 
   ngOnInit() {
     this.verifiedList = this.commonService.verifiedPolls
-    console.log(this.verifiedList)
+    console.log("verified list:", this.verifiedList)
   }
   back()
   {
