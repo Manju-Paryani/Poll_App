@@ -53,6 +53,7 @@ userType = 'user'
     this.commonService.signin(cred).subscribe((response: any) => {
       console.log('signin success',response)
       if(response.status.code == 200){
+
         this.commonService.userData = response.data
         this.navCtrl.navigateForward('/my-dashboard')
       }
