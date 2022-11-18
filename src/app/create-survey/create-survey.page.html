@@ -1,5 +1,6 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="appBar">
+    <ion-icon style="color: #3880ff;" name="arrow-back-outline"></ion-icon>
     <ion-title>Create Survey</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,22 +8,59 @@
 <ion-content>
   <div class="page_wrapper">
 
-    <div class="my_question">
+    <ion-item style="font-size: 14px;">
+      <ion-label>Choose Category</ion-label>
+      <ion-select interface="action-sheet" placeholder="Select Category" cancelText="Cancel Choice">
+        <ion-select-option value="apples">Sports</ion-select-option>
+        <ion-select-option value="oranges">Politics</ion-select-option>
+        <ion-select-option value="bananas">General Knowledge</ion-select-option>
+        <ion-select-option value="bananas">Others</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="my_question  animate__animated animate__zoomIn">
       <div class="question">
-        <ion-textarea placeholder="Enter question" [clearOnEdit]="true">
-        </ion-textarea>
+        <ion-label class="clabel">Your Question?</ion-label>
+        <ion-textarea class="custom-textarea " placeholder="Enter question here" [clearOnEdit]="true"></ion-textarea>
       </div>
 
       <div class="option_block">
-        <div class="option1"><span>A</span>
-          < 30</div>
-            <div class="option1"><span>B</span>50 +</div>
-            <div class="option1"><span>C</span>100 +</div>
-            <div class="option1"><span>D</span>70 +</div>
-        </div>
+        <ion-list>
+          <ion-item>
+            <ion-label>A</ion-label>
+            <ion-input placeholder="Enter Option"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>B</ion-label>
+            <ion-input placeholder="Enter Option"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>C</ion-label>
+            <ion-input placeholder="Enter Option"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>D</ion-label>
+            <ion-input placeholder="Enter Option"></ion-input>
+          </ion-item>
+        </ion-list>
 
       </div>
 
+
+
     </div>
+
+
+
+    <div class="dual_button animate__animated animate__slideInUp">
+      <ion-button class="myBtnz">Post</ion-button>
+    </div>
+
+
+
+  </div>
 
 </ion-content>

@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon style="color: #3880ff;" name="arrow-back-outline"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="page_wrapper">
+
+    <!-- <ion-item style="font-size: 14px;">
+      <ion-label>Choose Category</ion-label>
+      <ion-select interface="action-sheet" placeholder="Select Category" cancelText="Cancel Choice">
+        <ion-select-option value="apples">Sports</ion-select-option>
+        <ion-select-option value="oranges">Politics</ion-select-option>
+        <ion-select-option value="bananas">General Knowledge</ion-select-option>
+        <ion-select-option value="bananas">Others</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+
+    <div class="my_question">
+      <div class="question">
+        <ion-label class="clabel">Question?</ion-label>
+        <div class="qsn">Who has made 100 Centuries in cricket?</div>
+      </div>
+
+      <div class="option_block">
+
+
+        <ion-list>
+          <ion-radio-group [allowEmptySelection]="true" value="turtles">
+            <ion-item>
+              <ion-label>Sachin Tendulkar</ion-label>
+              <ion-radio slot="end" value="dogs"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Virat Kohli</ion-label>
+              <ion-radio slot="end" value="cats"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Kumara Sangakara</ion-label>
+              <ion-radio slot="end" value="turtles"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Don Bradman</ion-label>
+              <ion-radio slot="end" value="fish"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </div>
+
+
+
+    </div>
+
+
+
+    <div class="btn_holder">
+      <ion-button class="myBtnz">SUBMIT</ion-button>
+    </div>
+
+
+
+  </div>
+
+</ion-content>

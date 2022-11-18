@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'create-survey',
     loadChildren: () => import('./create-survey/create-survey.module').then( m => m.CreateSurveyPageModule)
   },
+  {
+    path: 'answer-survey',
+    loadChildren: () => import('./answer-survey/answer-survey.module').then( m => m.AnswerSurveyPageModule)
+  },
 
 ];
 

@@ -23,11 +23,37 @@ userType = 'user'
   mobileNo: number | undefined;
   set_password: any;
   confirm_password: any;
-
+  passwordIcon1: string = 'eye-off';
+  show: boolean = false;
+  ey1: any = false;
   constructor(public commonService: CommonServiceService,
     public navCtrl : NavController) { }
 
   ngOnInit() {
+
+  }
+
+  hideShowPassword() {
+    this.show = !this.show;
+    this.passwordIcon1 = this.passwordIcon1 === 'eye-off' ? 'eye-on' : 'eye-off';
+  }
+
+  btnCheck = false
+  checkEvent() {
+    if (this.password && this.password.length > 0) {
+      this.ey1 = true;
+    }
+    else {
+      this.ey1 = false;
+    }
+    if (this.password && this.password.length > 0) {
+      this.btnCheck = true
+      return true;
+    }
+    else {
+      this.btnCheck = false
+      return false;
+    }
   }
 
   setOptions() {

@@ -1,17 +1,3 @@
-ion-header {
-  .appBar {
-    display: flex;
-    align-items: center;
-
-    ion-title {
-      font-size: 18px;
-      font-family: "Roboto";
-      font-weight: 400;
-      color: #666678;
-    }
-  }
-}
-
 ion-content {
   .page_wrapper {
     padding: 24px;
@@ -30,7 +16,15 @@ ion-content {
           font: normal normal 14px 'Roboto';
           font-weight: 500;
           color: #273d4c;
-          ;
+
+        }
+
+        .qsn {
+          padding: 14px;
+          font-family: 'Roboto';
+          font-weight: 400;
+          color: #fff;
+          font-size: 18px;
         }
 
         ion-textarea.custom-textarea {
@@ -52,17 +46,19 @@ ion-content {
 
         ion-item {
           ion-label {
-            background: rgba(241, 241, 241, 0.9450980392);
-            width: 24px;
-            height: 24px;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            border-radius: 50%;
-            font-weight: bold;
-            color: #5e71cd;
+            &.lblz {
+              background: rgba(241, 241, 241, 0.9450980392);
+              width: 24px;
+              height: 24px;
+              margin: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 14px;
+              border-radius: 50%;
+              font-weight: bold;
+              color: #5e71cd;
+            }
           }
 
           ion-input {
@@ -72,31 +68,9 @@ ion-content {
       }
     }
 
-    .dual_button {
-      display: grid;
-      grid-template-columns: repeat(1, auto);
-      grid-gap: 8px;
+
+    .btn_holder {
       margin-top: 24px;
-
-      .outBtn {
-
-        --background: white;
-        color: #017dc7;
-        font: normal normal 14px "Roboto";
-        letter-spacing: 0.2px;
-        position: relative;
-        --border-radius: 50px;
-        border: 1px solid #017dc7;
-        border-radius: 50px;
-        text-transform: uppercase;
-        --box-shadow: none;
-
-        ion-icon {
-          margin-right: 6px;
-        }
-
-      }
-
       .myBtnz {
         font: normal normal 14px 'Roboto';
         color: #fff;
@@ -105,9 +79,14 @@ ion-content {
         --box-shadow: none;
         --background: linear-gradient(270deg, #7ac9ff, #017dc7);
         --outline: none !important;
+        width: 100%;
         height: 51px;
+
+      }
+        ion-icon {
+          margin-right: 6px;
+        }
 
       }
     }
   }
-}
