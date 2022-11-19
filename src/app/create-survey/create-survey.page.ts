@@ -38,12 +38,6 @@ export class CreateSurveyPage implements OnInit {
     this.navCtrl.navigateForward('/my-dashboard') // change later
   }
 
-  // survey(){
-    
-    
-
-  //   this.navCtrl.navigateForward('/create-survey') 
-  // }
 
   publishPoll(){
     if(this.option1 && this.option2){

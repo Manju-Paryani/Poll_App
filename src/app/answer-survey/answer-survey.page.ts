@@ -36,8 +36,8 @@ this.navCtrl.pop()
 
   }
 
-  selected_option(item: any ){
-
+  selected_option(item: any, pos:number ){
+    this.selectedPoll.vote_options[pos].votes_count = this.selectedPoll.vote_options[pos].votes_count + 1
     this.selectedId = item.id
   }
 
@@ -51,11 +51,10 @@ this.navCtrl.pop()
     }
     this.commonService.submitPoll(data, this.selectedPoll.poll.id).subscribe((response: any) => {
       console.log("res",response)
-      this.submitCheck = true
     this.presentAlert('You have successfully submitted the poll');
     },err =>{
       if(err.status == 422){
-        this.submitCheck = true
+
         this.presentAlert('You have Already participated in the poll');
       }
     });
@@ -72,6 +71,7 @@ this.navCtrl.pop()
   
     await alert.present();
     alert.onDidDismiss().then(() => {
+      this.submitCheck = true
       this.gotoDash = true
       //this.navCtrl.navigateForward("/my-dashboard")
     })

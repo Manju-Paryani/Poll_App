@@ -34,9 +34,9 @@ export class ChartsComponent implements OnInit {
           label: 'Poll',
           data: [this.commonService.createdCount, this.commonService.approvedCount, this.commonService.answeredPollCount],
           backgroundColor: [
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)'
+             '#FFCE56',
+            '#FF6384',
+            '#36A2EB'
           ],
           hoverBackgroundColor: [
             '#FFCE56',
