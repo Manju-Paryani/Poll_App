@@ -37,21 +37,26 @@
             <ion-item (click)="selected_option(this.selectedPoll.vote_options[0])">
               <ion-label>{{this.selectedPoll.vote_options[0].title}}</ion-label>
               <ion-radio slot="end" value="dogs"></ion-radio>
+              <div *ngIf="submitCheck">Votes: {{this.selectedPoll.vote_options[0].votes_count}} </div>
             </ion-item>
+            <!-- <div>Total votes for this option: {{this.selectedPoll.vote_options[0].vote_count}} </div> -->
 
             <ion-item (click)="selected_option(this.selectedPoll.vote_options[1])">
               <ion-label>{{this.selectedPoll.vote_options[1].title}}</ion-label>
               <ion-radio slot="end" value="cats"></ion-radio>
+              <div *ngIf="submitCheck">Votes: {{this.selectedPoll.vote_options[1].votes_count}} </div>
             </ion-item>
 
             <ion-item *ngIf="this.selectedPoll.vote_options[2]" (click)="selected_option(this.selectedPoll.vote_options[2])">
               <ion-label>{{this.selectedPoll.vote_options[2].title}}</ion-label>
               <ion-radio slot="end" value="turtles"></ion-radio>
+              <div *ngIf="submitCheck">Votes: {{this.selectedPoll.vote_options[2].votes_count}} </div>
             </ion-item>
 
             <ion-item *ngIf="this.selectedPoll.vote_options[3]" (click)="selected_option(this.selectedPoll.vote_options[3])">
               <ion-label >{{this.selectedPoll.vote_options[3].title}}</ion-label>
               <ion-radio slot="end" value="fish"></ion-radio>
+              <div *ngIf="submitCheck">Votes: {{this.selectedPoll.vote_options[3].votes_count}} </div>
             </ion-item>
           </ion-radio-group>
         </ion-list>
@@ -63,8 +68,11 @@
 
 
 
-    <div class="btn_holder animate__animated animate__slideInUp">
+    <div class="btn_holder animate__animated animate__slideInUp" *ngIf="!gotoDash">
       <ion-button class="myBtnz" (click)="submit()">SUBMIT</ion-button>
+    </div>
+    <div class="btn_holder animate__animated animate__slideInUp" *ngIf="gotoDash">
+      <ion-button class="myBtnz" (click)="gotodashboard()">Goto Dashboard</ion-button>
     </div>
 
 
