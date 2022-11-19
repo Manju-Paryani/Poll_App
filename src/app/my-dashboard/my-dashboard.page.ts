@@ -34,6 +34,10 @@ pendingSurvey() {
   ngOnInit() {
   }
   ionViewWillEnter() {
+    this.createdCount = ''
+    this.approvedCount = ''
+    this.totalPollCount = ''
+    this.answeredPollCount = ''
     this.dashboard()
   }
 

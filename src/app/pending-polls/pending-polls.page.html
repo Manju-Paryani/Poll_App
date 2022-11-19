@@ -24,7 +24,7 @@
         <div class="user_details" *ngFor="let item of unVerifiedPolls">
           <div class="left">{{item.poll.topic}}</div>
           <div class="right">
-            <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div>
+        <!-- /  <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div> -->
             <div class="bbx approve" (click)="verifyPoll(item)">
               <ion-icon name="checkmark-outline"></ion-icon>
             </div>

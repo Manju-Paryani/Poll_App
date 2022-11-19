@@ -1,5 +1,5 @@
 {
-  "name": "poll_app",
+  "name": "Public Survey",
   "integrations": {
     "capacitor": {}
   },

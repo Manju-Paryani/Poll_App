@@ -13,6 +13,7 @@ export class WelcomeScreenPage implements OnInit {
   ngOnInit() {
   }
   getStarted(){
+    debugger
     this.navCtrl.navigateForward('/credential-page')
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,12 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(public platform:Platform, public navCtrl:NavController, public router:Router) {
-    this.platform.ready().then(() => {
-      this.router.navigateByUrl('/welcome-screen');
-    });
+    this.initializeApp();
+  }
 
+  initializeApp() {
+    this.platform.ready().then(async () => {
+      await SplashScreen.hide();
+    });
   }
 }
