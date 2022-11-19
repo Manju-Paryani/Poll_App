@@ -15,9 +15,11 @@ export class AnswerSurveyPage implements OnInit {
   option3: any ;
   option4: any ;
   data: any;
+  gotoDash = false
   
   selectedPoll:any
   selectedId: any;
+  submitCheck = false;
   // submitPoll_url="https://api.cherryko.tk/api/v1/polls/3/vote"
   
 back() {
@@ -40,6 +42,7 @@ this.navCtrl.pop()
   }
 
   submit(){
+  
     let data = {
       "vote_option_id": this.selectedId
     }
@@ -48,10 +51,11 @@ this.navCtrl.pop()
     }
     this.commonService.submitPoll(data, this.selectedPoll.poll.id).subscribe((response: any) => {
       console.log("res",response)
-  
+      this.submitCheck = true
     this.presentAlert('You have successfully submitted the poll');
     },err =>{
       if(err.status == 422){
+        this.submitCheck = true
         this.presentAlert('You have Already participated in the poll');
       }
     });
@@ -68,8 +72,13 @@ this.navCtrl.pop()
   
     await alert.present();
     alert.onDidDismiss().then(() => {
-      this.navCtrl.navigateForward("/my-dashboard")
+      this.gotoDash = true
+      //this.navCtrl.navigateForward("/my-dashboard")
     })
+  }
+
+  gotodashboard(){
+    this.navCtrl.navigateBack('/my-dashboard')
   }
 
 } 
