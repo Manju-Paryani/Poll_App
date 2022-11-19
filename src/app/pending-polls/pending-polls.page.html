@@ -16,17 +16,24 @@
       </div>
     </div>
     <div class="user_list animate__animated animate__zoomIn" *ngIf="unVerifiedPolls.length > 0">
-      <div class="title">Question List</div>
+      <div class="title">Poll List</div>
 
 
       <div class="user_block">
 
         <div class="user_details" *ngFor="let item of unVerifiedPolls">
           <div class="left">{{item.poll.topic}}</div>
+          <section>    
+            <ul class="my-nav" *ngFor="let obj of item.vote_options">
+              <li>{{obj.title}}</li>
+            </ul>
+          </section>
           <div class="right">
-        <!-- /  <div class="usrname"><ion-icon name="person-circle-outline"></ion-icon> &nbsp; UserName Here</div> -->
-            <div class="bbx approve" (click)="verifyPoll(item)">
+            <!-- <div class="bbx approve" (click)="verifyPoll(item)">
               <ion-icon name="checkmark-outline"></ion-icon>
+            </div> -->
+            <div class="dual_button">
+              <ion-button class="outBtn" (click)="verifyPoll(item)">Approve</ion-button>
             </div>
           </div>
         </div>
