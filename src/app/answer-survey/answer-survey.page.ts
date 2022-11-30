@@ -35,9 +35,9 @@ this.navCtrl.pop()
     console.log(this.selectedPoll)
 
   }
-
+  pos:any
   selected_option(item: any, pos:number ){
-    this.selectedPoll.vote_options[pos].votes_count = this.selectedPoll.vote_options[pos].votes_count + 1
+   this.pos = pos
     this.selectedId = item.id
   }
 
@@ -46,15 +46,12 @@ this.navCtrl.pop()
     let data = {
       "vote_option_id": this.selectedId
     }
-    let id = {
-      "poll_id": this.selectedPoll.poll.id,
-    }
     this.commonService.submitPoll(data, this.selectedPoll.poll.id).subscribe((response: any) => {
       console.log("res",response)
+      this.selectedPoll.vote_options[this.pos].votes_count = this.selectedPoll.vote_options[this.pos].votes_count + 1
     this.presentAlert('You have successfully submitted the poll');
     },err =>{
       if(err.status == 422){
-
         this.presentAlert('You have Already participated in the poll');
       }
     });

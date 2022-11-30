@@ -40,7 +40,7 @@ export class CommonServiceService {
   header =  {
     'Content-Type' : "application/json"
   };options:any
-  auth:any = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjY4ODM3OTg2LCJleHAiOjE2NzAxMzM5ODYsImp0aSI6ImQzYjEwOGZlLTA3MjAtNDI0OS1iMTY3LTNiNDMxNTJhZjcxYiJ9.nZOitNvN1A7DGvpfcFh3NPoZtorhsGPP1KgFbcchb40'
+  auth:any
   userData: any
   verifiedPolls:any
   unVerifiedPolls:any

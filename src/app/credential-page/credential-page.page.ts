@@ -77,6 +77,10 @@ errorText = false
         
       }
       console.log('signup success',response)
+    },err =>{
+      if(err.status == 422){
+        this.presentAlert('Email is already Used');
+      }
     })
   }
   }

@@ -27,7 +27,7 @@ pendingSurvey() {
     public navCtrl: NavController) {
     this.userData = this.commonService.userData
     this.name = this.userData?.name
-    this.isAdmin = true //this.commonService.isAdmin
+    this.isAdmin = this.commonService.isAdmin
 
   }
 
